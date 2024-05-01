@@ -1,0 +1,7 @@
+node_modules
+config.json
+notes
+constents.js
+.env
+dist
+ngrok.yml

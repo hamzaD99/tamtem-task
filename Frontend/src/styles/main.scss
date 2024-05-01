@@ -1,0 +1,18 @@
+@use 'vuetify/settings';
+
+.v-application {
+  font-family: 'Cairo' !important;
+  color: #0c2d48 !important;
+}
+
+body {
+  margin: 0 !important;
+}
+
+.v-locale--is-ltr {
+  direction: unset !important;
+}
+
+h1 {
+  font-weight: 500;
+}
