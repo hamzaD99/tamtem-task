@@ -6,8 +6,21 @@
         <v-progress-circular size="50" indeterminate color="red" />
       </v-row>
       <v-row v-else justify="center">
-        <v-col cols="12">
+        <v-col cols="12" style="display: flex;justify-content: space-between;">
           <h1 style="font-weight: bolder;">Products Page</h1>
+          <a @click="logout()" v-if="token" exact style="text-decoration: none;
+            padding: 8px 16px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 20px;
+            color: #0c2d48;
+            font-weight: bolder;">Logout</a>
+          <router-link v-else :to="{ name: 'LoginPage' }" exact style="text-decoration: none;
+            color: #0c2d48;
+            padding: 12px 16px;
+            border-bottom: 2px solid transparent;
+            font-size: 20px;
+            font-weight: bolder;">Login</router-link>
         </v-col>
         <v-col md="3" sm="6 "cols="12" v-for="product in products" :key="product.id">
           <ProductCard :name="product.name" :price="product.price" :image="product.image" :id="product.id" />
@@ -19,6 +32,7 @@
 
 <script>
 import ProductCard from '@/components/ProductCard.vue'
+import { mapGetters } from 'vuex';
 export default {
   name: 'ListingPage',
   components: {
@@ -29,6 +43,12 @@ export default {
       productsLoading: false,
       products: []
     };
+  },
+  computed: {
+    ...mapGetters({
+      token: 'token',
+      user: 'user'
+    })
   },
   created() {
     this.getProducts()
@@ -48,6 +68,10 @@ export default {
         .finally(() => {
           this.productsLoading = false
         })
+    },
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.go("/")
     }
   },
 };

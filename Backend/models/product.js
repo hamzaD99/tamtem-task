@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-class User extends Sequelize.Model {
+class Product extends Sequelize.Model {
     static init(sequelize, DataTypes) {
         return super.init(
             {
@@ -10,18 +10,19 @@ class User extends Sequelize.Model {
                     primaryKey: true,
                 },
                 name: DataTypes.STRING,
-                email: DataTypes.STRING,
-                password: DataTypes.STRING,
-                createdAt: DataTypes.DATE
+                description: DataTypes.TEXT,
+                price: DataTypes.FLOAT,
+                image: DataTypes.BLOB,
+                createdAt: DataTypes.DATE,
+                updatedAt: DataTypes.DATE
             },
             {
-                tableName: 'users',
+                tableName: 'products',
                 sequelize,
-                timestamps: false
             }
         );
     }
 
 }
 
-module.exports = User;
+module.exports = Product;

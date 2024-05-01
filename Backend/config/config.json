@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "doadmin",
+    "password": "AVNS_d12m04bvVjR2HfKNiIs",
+    "database": "defaultdb",
+    "host": "db-postgresql-nyc3-14819-do-user-12813783-0.c.db.ondigitalocean.com",
+    "port": "25060",
+    "dialect": "postgres",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}

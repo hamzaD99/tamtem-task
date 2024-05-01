@@ -66,6 +66,5 @@ app.config.globalProperties.$rules = {...validationRules}
 
 const error = (err, message="Something Went Wrong!") =>{
   console.error(err)
-  store.dispatch('showSnackbar',{ message: message })
 }
 app.config.globalProperties.$error = error
