@@ -2,11 +2,11 @@
   <div>
     <v-container fluid style="padding: 70px;">
       <v-row justify="center">
-        <v-col cols="9">
+        <v-col md="9" cols="12">
           <h1 style="font-weight: bolder;">Edit</h1>
         </v-col>
-        <v-col style="width: 100%; border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 20px 0px" cols="9" class="d-flex pa-15 justify-center flex-column align-center">
-          <div style="width: 70%">
+        <v-col style="width: 100%; border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 20px 0px" md="9" cols="12" class="d-flex pa-15 justify-center flex-column align-center">
+          <div :style="$vuetify.display.smAndDown ? 'width: 100%' : 'width: 70%'">
             <h2 class="mb-3">Upload Image</h2>
             <v-file-input
               v-model="selectedImage"
@@ -16,21 +16,21 @@
             <h2 class="mb-3">Product Name</h2>
             <InputField v-model="name" name="Enter Name" label/>
           </div>
-          <div style="width: 70%;margin-top: 25px">
+          <div style="margin-top: 25px" :style="$vuetify.display.smAndDown ? 'width: 100%' : 'width: 70%'">
             <h2 class="mb-3">Product Description</h2>
             <InputField v-model="description" name="Enter Description" label/>
           </div>
-          <div style="width: 70%;margin-top: 25px">
+          <div style="margin-top: 25px" :style="$vuetify.display.smAndDown ? 'width: 100%' : 'width: 70%'">
             <h2 class="mb-3">Product Price</h2>
             <InputField v-model="price" name="Enter Price" label/>
           </div>
 
-          <div style="width: 70%;flex-direction: row-reverse; column-gap: 15px;" class="d-flex">
-            <div @click="saveProduct" style="cursor: pointer; background-color: rgb(48 114 66);width: 30%; color: white; padding: 10px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;" class="mb-3">
+          <div :style="$vuetify.display.smAndDown ? 'width: 100%' : 'width: 70%'" style="flex-direction: row-reverse; column-gap: 15px;" class="d-flex flex-wrap">
+            <div @click="saveProduct" style="cursor: pointer; background-color: rgb(48 114 66);min-width: 30%; color: white; padding: 10px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;" class="mb-3">
               <v-progress-circular v-if="EditProductLoading" size="50" indeterminate color="white" />
               <span v-else>Save Changes</span>
             </div>
-            <div @click="$router.push(`/product/${id}`)" style="cursor: pointer;background-color: rgb(104 111 106);width: 30%; color: white; padding: 10px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;" class="mb-3">Cancel</div>
+            <div @click="$router.push(`/product/${id}`)" style="cursor: pointer;background-color: rgb(104 111 106);min-width: 30%; color: white; padding: 10px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;" class="mb-3">Cancel</div>
           </div>
         </v-col>
 

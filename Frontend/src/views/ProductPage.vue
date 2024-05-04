@@ -5,20 +5,30 @@
         <v-progress-circular size="50" indeterminate color="red" />
       </v-row>
       <v-row v-else justify="center">
-        <v-col cols="11">
+        <v-col md="11" cols="12">
           <h1 style="font-weight: bolder;">Product Details</h1>
         </v-col>
-        <v-col style="border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 20px 0px" cols="11" class="d-flex pa-0 justify-space-between">
-          <div class="d-flex" style="width: 100%;">
-            <v-img cover style="border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.02) 20px 5px 20px 0px":src="product.image ? getBlob(product.image) :require('@/assets/default-item.jpg')" max-width="50%" width="100%" />
-            <div style="padding: 70px;" class="d-flex flex-column justify-space-evenly">
+        <v-col style="border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 20px 0px" md="11" cols="12"
+          class="d-flex pa-0 justify-space-between" :class="$vuetify.display.smAndDown ? 'flex-column align-center' : ''">
+          <div class="d-flex" style="width: 100%;" :class="$vuetify.display.smAndDown ? 'flex-wrap' : ''">
+            <v-img cover style="border-radius: 3%;box-shadow: rgba(0, 0, 0, 0.02) 20px 5px 20px 0px"
+              :src="product.image ? getBlob(product.image) : require('@/assets/default-item.jpg')" :max-width="$vuetify.display.smAndDown ? '100%' : '50%'"
+              width="100%" />
+            <div :style="$vuetify.display.smAndDown ? 'padding: 25px;' : 'padding: 70px;'" class="d-flex flex-column justify-space-evenly align-center align-md-start text-center text-md-start">
               <h1 style="font-weight: bolder;padding: 20px 0px">{{ product.name }}</h1>
               <p v-html="product.description" style="font-size: 20px;padding: 20px 0px"></p>
               <h1 style="font-weight: bolder;font-size: 20px;padding: 20px 0px">Price ${{ product.price }}</h1>
-              <div style="background-color: rgb(48 114 66); width: 70%;min-width:220px;color: white; padding: 20px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;" class="mb-3">CTA</div>
+              <div
+                style="background-color: rgb(48 114 66); width: 70%;min-width:220px;color: white; padding: 20px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;"
+                class="mb-3">CTA</div>
+              <div v-if="$vuetify.display.smAndDown"
+                style="cursor: pointer;background-color: gray; width: 70%;min-width:220px;color: white; padding: 20px;border-radius: 500px;text-align: center;font-size: 25px;margin-top: 30px;"
+                class="mb-3" @click="$router.push(`/product/${product.id}/edit`)">Edit</div>
             </div>
           </div>
-          <div style="cursor: pointer;display: flex;color:gray;margin: 20px 15px;height: fit-content;" @click="$router.push(`/product/${product.id}/edit`)"><v-icon size="25" style="margin-right: 5px">mdi-file-document-edit</v-icon><span>Edit</span></div>
+          <div v-if="$vuetify.display.mdAndUp" style="cursor: pointer;display: flex;color:gray;margin: 20px 15px;height: fit-content;"
+            @click="$router.push(`/product/${product.id}/edit`)"><v-icon size="25"
+              style="margin-right: 5px">mdi-file-document-edit</v-icon><span>Edit</span></div>
         </v-col>
 
       </v-row>

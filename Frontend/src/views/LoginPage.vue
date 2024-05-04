@@ -11,7 +11,7 @@
               </v-col>
           </v-row>
           <v-row justify="center" style="width: 100%;">
-            <v-col cols="6" style="display: flex; align-items: center; flex-direction: column; border: 1px solid #8080804a;padding: 50px; border-radius: 3%">
+            <v-col md="6" cols="10" style="display: flex; align-items: center; flex-direction: column; border: 1px solid #8080804a;padding: 50px; border-radius: 3%">
               <h2 style="font-weight: bolder;margin-bottom: 25px;">Login</h2>
               <InputField style="width: 100%;margin-bottom: 10px;" :rules="$rules.emailRules" v-model="email" name="Email" label />
               <InputField style="width: 100%;margin-bottom: 10px;" type="password" :rules="$rules.requiredRule" v-model="password" name="Password" label />
